@@ -20,6 +20,7 @@ namespace UserMaintenance
         public Form1()
         {
             InitializeComponent();
+            //Másik gépról bejelentkezés
 
 
 
