@@ -18,9 +18,24 @@ namespace MNB
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> currencies = new BindingList<string>();
         public Form1()
         {
             InitializeComponent();
+            //cbxValuta.DataSource = currencies;
+            MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+            GetCurrenciesRequestBody request = new GetCurrenciesRequestBody();
+            
+            var response = mnbService.GetCurrencies(request);
+            string result = response.GetCurrenciesResult;
+            File.WriteAllText("valutak" ,result);
+            
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
             string xmlstring = Consume();
             LoadXml(xmlstring);
             dataGridView1.DataSource = Rates;
@@ -64,12 +79,22 @@ namespace MNB
         {
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
             GetExchangeRatesRequestBody request = new GetExchangeRatesRequestBody();
-            request.currencyNames = "EUR";
-            request.startDate = "2020-01-01";
-            request.endDate= "2020-06-30";
+            request.currencyNames = cbxValuta.SelectedItem.ToString(); ;
+            request.startDate = tolPicker.Value.ToString("yyyy-MM-dd");
+            request.endDate= igPicker.Value.ToString("yyyy-MM-dd");
             var response = mnbService.GetExchangeRates(request);
             string result = response.GetExchangeRatesResult;
             return result;
+        }
+
+        private void Mehet_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void filterChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

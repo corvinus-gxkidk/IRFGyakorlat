@@ -29,9 +29,9 @@ namespace MNB
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chartRateData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tolPicker = new System.Windows.Forms.DateTimePicker();
@@ -57,41 +57,51 @@ namespace MNB
             // 
             // chartRateData
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartRateData.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartRateData.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartRateData.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartRateData.Legends.Add(legend3);
             this.chartRateData.Location = new System.Drawing.Point(420, 33);
             this.chartRateData.Name = "chartRateData";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartRateData.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartRateData.Series.Add(series3);
             this.chartRateData.Size = new System.Drawing.Size(515, 300);
             this.chartRateData.TabIndex = 1;
             this.chartRateData.Text = "chart1";
             // 
             // tolPicker
             // 
+            this.tolPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tolPicker.Location = new System.Drawing.Point(420, 369);
             this.tolPicker.Name = "tolPicker";
             this.tolPicker.Size = new System.Drawing.Size(200, 22);
             this.tolPicker.TabIndex = 2;
+            this.tolPicker.Value = new System.DateTime(2020, 1, 1, 10, 44, 0, 0);
+            this.tolPicker.ValueChanged += new System.EventHandler(this.filterChanged);
             // 
             // igPicker
             // 
+            this.igPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.igPicker.Location = new System.Drawing.Point(420, 397);
             this.igPicker.Name = "igPicker";
             this.igPicker.Size = new System.Drawing.Size(200, 22);
             this.igPicker.TabIndex = 3;
+            this.igPicker.Value = new System.DateTime(2020, 6, 30, 10, 44, 0, 0);
+            this.igPicker.ValueChanged += new System.EventHandler(this.filterChanged);
             // 
             // cbxValuta
             // 
             this.cbxValuta.FormattingEnabled = true;
+            this.cbxValuta.Items.AddRange(new object[] {
+            "EUR"});
             this.cbxValuta.Location = new System.Drawing.Point(12, 3);
             this.cbxValuta.Name = "cbxValuta";
             this.cbxValuta.Size = new System.Drawing.Size(344, 24);
             this.cbxValuta.TabIndex = 4;
+            this.cbxValuta.Text = "EUR";
+            this.cbxValuta.SelectedIndexChanged += new System.EventHandler(this.filterChanged);
             // 
             // label1
             // 
@@ -128,6 +138,7 @@ namespace MNB
             this.Mehet.TabIndex = 8;
             this.Mehet.Text = "Mehet";
             this.Mehet.UseVisualStyleBackColor = true;
+            this.Mehet.Click += new System.EventHandler(this.Mehet_Click);
             // 
             // Form1
             // 
