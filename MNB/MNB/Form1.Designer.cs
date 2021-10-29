@@ -34,6 +34,13 @@ namespace MNB
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chartRateData = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tolPicker = new System.Windows.Forms.DateTimePicker();
+            this.igPicker = new System.Windows.Forms.DateTimePicker();
+            this.cbxValuta = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Mehet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRateData)).BeginInit();
             this.SuspendLayout();
@@ -41,7 +48,7 @@ namespace MNB
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 33);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -54,21 +61,86 @@ namespace MNB
             this.chartRateData.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRateData.Legends.Add(legend1);
-            this.chartRateData.Location = new System.Drawing.Point(420, 12);
+            this.chartRateData.Location = new System.Drawing.Point(420, 33);
             this.chartRateData.Name = "chartRateData";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartRateData.Series.Add(series1);
-            this.chartRateData.Size = new System.Drawing.Size(390, 300);
+            this.chartRateData.Size = new System.Drawing.Size(515, 300);
             this.chartRateData.TabIndex = 1;
             this.chartRateData.Text = "chart1";
+            // 
+            // tolPicker
+            // 
+            this.tolPicker.Location = new System.Drawing.Point(420, 369);
+            this.tolPicker.Name = "tolPicker";
+            this.tolPicker.Size = new System.Drawing.Size(200, 22);
+            this.tolPicker.TabIndex = 2;
+            // 
+            // igPicker
+            // 
+            this.igPicker.Location = new System.Drawing.Point(420, 397);
+            this.igPicker.Name = "igPicker";
+            this.igPicker.Size = new System.Drawing.Size(200, 22);
+            this.igPicker.TabIndex = 3;
+            // 
+            // cbxValuta
+            // 
+            this.cbxValuta.FormattingEnabled = true;
+            this.cbxValuta.Location = new System.Drawing.Point(12, 3);
+            this.cbxValuta.Name = "cbxValuta";
+            this.cbxValuta.Size = new System.Drawing.Size(344, 24);
+            this.cbxValuta.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(651, 369);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "KezdőDátum";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(651, 397);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "ZáróDátum";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(376, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Valuta";
+            // 
+            // Mehet
+            // 
+            this.Mehet.Location = new System.Drawing.Point(487, 3);
+            this.Mehet.Name = "Mehet";
+            this.Mehet.Size = new System.Drawing.Size(75, 23);
+            this.Mehet.TabIndex = 8;
+            this.Mehet.Text = "Mehet";
+            this.Mehet.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 450);
+            this.Controls.Add(this.Mehet);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbxValuta);
+            this.Controls.Add(this.igPicker);
+            this.Controls.Add(this.tolPicker);
             this.Controls.Add(this.chartRateData);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
@@ -76,6 +148,7 @@ namespace MNB
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRateData)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,6 +156,13 @@ namespace MNB
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRateData;
+        private System.Windows.Forms.DateTimePicker tolPicker;
+        private System.Windows.Forms.DateTimePicker igPicker;
+        private System.Windows.Forms.ComboBox cbxValuta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Mehet;
     }
 }
 
