@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 
 namespace MNB
@@ -23,6 +24,16 @@ namespace MNB
             string xmlstring = Consume();
             LoadXml(xmlstring);
             dataGridView1.DataSource = Rates;
+            Charting();
+        }
+
+        private void Charting()
+        {
+            chartRateData.DataSource = Rates;
+            Series series = chartRateData.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
         }
 
         private void LoadXml(string input)
@@ -36,6 +47,8 @@ namespace MNB
                 XmlElement child = (XmlElement)item.FirstChild;
                 r.Currency = child.GetAttribute("curr");
                 r.Value = decimal.Parse(child.InnerText);
+                int unit = int.Parse(child.GetAttribute("unit"));
+                if (unit != 0) r.Value = r.Value / unit;
                 Rates.Add(r);
             }
         }
