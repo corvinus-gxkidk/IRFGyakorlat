@@ -33,6 +33,9 @@ namespace MNB
             {
                 RateData r = new RateData();
                 r.Date = DateTime.Parse(item.GetAttribute("date"));
+                XmlElement child = (XmlElement)item.FirstChild;
+                r.Currency = child.GetAttribute("curr");
+                r.Value = decimal.Parse(child.InnerText);
                 Rates.Add(r);
             }
         }
