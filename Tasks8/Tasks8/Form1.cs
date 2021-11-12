@@ -35,8 +35,8 @@ namespace Tasks8
         {
             var ball = Factory.CreateNew();
             _balls.Add(ball);
-            mainPanel.Controls.Add(ball);
             ball.Left = -ball.Width;
+            mainPanel.Controls.Add(ball);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -53,6 +53,16 @@ namespace Tasks8
                 mainPanel.Controls.Remove(oldestBall);
                 _balls.Remove(oldestBall);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
         }
     }
 }
