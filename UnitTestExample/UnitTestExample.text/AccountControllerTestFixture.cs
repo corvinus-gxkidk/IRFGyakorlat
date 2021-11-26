@@ -67,8 +67,10 @@ namespace UnitTestExample.text
         {
             // Arrange
             var accountManagerMock = new Mock<IAccountManager>(MockBehavior.Strict);
-            accountManagerMock.Setup(m => m.CreateAccount(It.IsAny<Account>()));
+            accountManagerMock.Setup(m => m.CreateAccount(It.IsAny<Account>()))
+            .Returns<Account>(a => a);
             var accountController = new AccountController();
+            accountController.AccountManager = accountManagerMock.Object;
 
             //Act
             var result = accountController.Register(email, password);
@@ -78,6 +80,7 @@ namespace UnitTestExample.text
             Assert.AreEqual(email, result.Email);
             Assert.AreEqual(password, result.Password);
             Assert.AreNotEqual(Guid.Empty, result.ID);
+            accountManagerMock.Verify(m => m.CreateAccount(result), Times.Once);
         }
         public void TestRegisterValidateException(string email, string password)
         {
