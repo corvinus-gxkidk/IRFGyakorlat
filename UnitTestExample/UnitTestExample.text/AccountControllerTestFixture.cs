@@ -50,8 +50,21 @@ namespace UnitTestExample.text
             var result = accountController.ValidatePassword(password);
 
             //Assert
-            Assert.AreEqual(result, expectedResult);
+            Assert.AreEqual(expectedResult, result);
 
+        }
+        public void TestRegisterHappyPath(string email, string password)
+        {
+            // Arrange
+            var accountController = new AccountController();
+
+            //Act
+            var result = accountController.Register(email, password);
+
+            //Assert
+            Assert.AreEqual(email, result.Email);
+            Assert.AreEqual(password, result.Password);
+            Assert.AreNotEqual(Guid.Empty, result.ID);
         }
     }
 }
