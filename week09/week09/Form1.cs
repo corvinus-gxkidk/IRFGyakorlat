@@ -59,12 +59,12 @@ namespace week09
 
             // Halál kezelése
             // Halálozási valószínűség kikeresése
-            double pDeath = (from x in DeathProbabilities
-                             where x.Gender == person.Gender && x.Age == age
-                             select x.P).FirstOrDefault();
+            //double pDeath = (from x in DeathProbabilities
+              //               where x.Gender == person.Gender && x.Age == age
+                //             select x.P).FirstOrDefault();
             // Meghal a személy?
-            if (rng.NextDouble() <= pDeath)
-                person.IsAlive = false;
+           // if (rng.NextDouble() <= pDeath)
+             //   person.IsAlive = false;
 
             //Születés kezelése - csak az élő nők szülnek
             if (person.IsAlive && person.Gender == Gender.Female)
@@ -136,7 +136,7 @@ namespace week09
                     var line = sr.ReadLine().Split(';');
                     deathProbabilities.Add(new DeathProbability()
                     {
-                        Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
+                        //Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
                         Age = int.Parse(line[1]),
                         P = double.Parse(line[2])
                     });
